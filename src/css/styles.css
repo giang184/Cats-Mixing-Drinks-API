@@ -3,11 +3,13 @@ body {
 }
 .userInput {
   background-color: #ffc857;
+  margin:auto;
 }
 .get-button {
   background-color: #177E89;
   font-weight:bold;
   text-align:center;
+  color:white;
 }
 
 .get-button:hover {
@@ -21,13 +23,60 @@ body {
   background-color:#FFC857;
 }
 
-img { 
+.card-img-top { 
   align-items: center;
-  max-width: 256px;
-  max-height:300px;
+  height:150px;
+  background-size:cover;
+  background-position:50%;
 }
 
 .card-img, .card-img-top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.card-text{
+  font-size:.8rem;
+}
+.cat-container {
+  justify-content: space-between;
+}
+.cat-box {
+  background-color: transparent;
+  perspective: 1000px;
+  width:16em;
+  margin-bottom:1rem;
+}
+.cat-liner {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transition-delay:.2s;
+}
+
+.cat-box:hover .cat-liner {
+  transform: rotateY(180deg);
+  transition-delay:.2s;
+}
+
+.cat-box:hover {
+  z-index:1;  
+}
+
+.cat, .cat-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+
+.cat-back {
+  transform: rotateY(180deg);
+  transition-delay:.2s;
+  box-shadow: 0 0 10px black;
+}
+.ingredients {
+  padding:0;
+  list-style-type: none;
 }
