@@ -69,8 +69,6 @@ body {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
-
-
 .cat-back {
   transform: rotateY(180deg);
   transition-delay:.2s;

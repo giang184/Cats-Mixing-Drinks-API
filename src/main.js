@@ -2,9 +2,9 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {CatService} from './cat-service';
+import { CatService } from './cat-service';
 
-$(document).ready(function() {
+$(document).ready(function () {
   $('.get-button').click(function (event) {
     event.preventDefault();
     const numCats = $('#numCats').val();
@@ -15,10 +15,10 @@ $(document).ready(function() {
 });
 
 async function makeApiCall(numCats) {
-  if (numCats>24) {
-    numCats=24;
+  if (numCats > 24) {
+    numCats = 24;
   }
-  for(let i=0; i<numCats; i++) {
+  for (let i = 0; i < numCats; i++) {
     const catPhoto = await CatService.getCatPicture();
     const catFact = await CatService.getCatFact();
     const catName = await CatService.getCatName();
@@ -28,14 +28,14 @@ async function makeApiCall(numCats) {
   }
 }
 function outputCat(catNum, catPhoto, catFact, catName, catStats, catDrink) {
-  
+
   $('.cat-container').append(`
     <div class="cat-box">
       <div class="cat-liner">
         <div class="card cat">
           <div class="card-img-top" id="cat-image-${catNum}" style="background-image: url('${catPhoto.webpurl}')"></div>
           <div class="card-body">
-            <h5 class="card-title" class="cat-name">${catName.results[Math.floor(Math.random()*750)].name.toUpperCase()}</h5>
+            <h5 class="card-title" class="cat-name">${catName.results[Math.floor(Math.random() * 750)].name.toUpperCase()}</h5>
             <p class="card-text" class="cat-fact"><em>${catFact.fact}</em></p>
           </div>
           <ul class="list-group list-group-flush">
@@ -77,40 +77,40 @@ function outputCat(catNum, catPhoto, catFact, catName, catStats, catDrink) {
     catDrink.drinks[0].strIngredient15
   ];
 
-    let measureArray = [
-      catDrink.drinks[0].strMeasure1,
-      catDrink.drinks[0].strMeasure2,
-      catDrink.drinks[0].strMeasure3,
-      catDrink.drinks[0].strMeasure4,
-      catDrink.drinks[0].strMeasure5,
-      catDrink.drinks[0].strMeasure6,
-      catDrink.drinks[0].strMeasure7,
-      catDrink.drinks[0].strMeasure8,
-      catDrink.drinks[0].strMeasure9,
-      catDrink.drinks[0].strMeasure10,
-      catDrink.drinks[0].strMeasure11,
-      catDrink.drinks[0].strMeasure12,
-      catDrink.drinks[0].strMeasure13,
-      catDrink.drinks[0].strMeasure14,
-      catDrink.drinks[0].strMeasure15
-    ];
-    let finalArray = [];
-    for (let i=0; i<=14; i++) {
-      let temp = "";
-      if(measureArray[i] !== null) {
-        temp = temp + measureArray[i]+" ";
-      }
-      if(ingredientArray[i] !== null) {
-        temp += ingredientArray[i];
-      }
-      if ((measureArray[i] !== null) && (ingredientArray[i] !== null)) {
-        finalArray.push(temp);
-      }
+  let measureArray = [
+    catDrink.drinks[0].strMeasure1,
+    catDrink.drinks[0].strMeasure2,
+    catDrink.drinks[0].strMeasure3,
+    catDrink.drinks[0].strMeasure4,
+    catDrink.drinks[0].strMeasure5,
+    catDrink.drinks[0].strMeasure6,
+    catDrink.drinks[0].strMeasure7,
+    catDrink.drinks[0].strMeasure8,
+    catDrink.drinks[0].strMeasure9,
+    catDrink.drinks[0].strMeasure10,
+    catDrink.drinks[0].strMeasure11,
+    catDrink.drinks[0].strMeasure12,
+    catDrink.drinks[0].strMeasure13,
+    catDrink.drinks[0].strMeasure14,
+    catDrink.drinks[0].strMeasure15
+  ];
+  let finalArray = [];
+  for (let i = 0; i <= 14; i++) {
+    let temp = "";
+    if (measureArray[i] !== null) {
+      temp = temp + measureArray[i] + " ";
     }
+    if (ingredientArray[i] !== null) {
+      temp += ingredientArray[i];
+    }
+    if ((measureArray[i] !== null) && (ingredientArray[i] !== null)) {
+      finalArray.push(temp);
+    }
+  }
 
-    ingredientArray.forEach((element, index) => {
-      if (element != null) {
-        $(`#ingredients-${catNum}`).append(`<li>${measureArray[index]} ${element}</li>`);
-      }
-    });
+  ingredientArray.forEach((element, index) => {
+    if (element != null) {
+      $(`#ingredients-${catNum}`).append(`<li>${measureArray[index]} ${element}</li>`);
+    }
+  });
 }
