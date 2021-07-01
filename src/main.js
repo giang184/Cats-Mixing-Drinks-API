@@ -7,7 +7,11 @@ import {CatService} from './cat-service';
 
 $(document).ready(function() {
     makeApiCall();
+    $('.get-button').click(function () {
+      makeApiCall();
+    });
 });
+
 
 async function makeApiCall() {
   const response = await CatService.getCatPicture();
@@ -18,7 +22,8 @@ async function makeApiCall() {
   displayCatName(catName);
   const catStats = await CatService.getCatStats();
   displayCatStats(catStats);
-  
+  const catDrink = await CatService.getDrink();
+  displayDrink(catDrink);
 }
 
 function display(response) {
@@ -56,5 +61,13 @@ function displayCatStats(response) {
   } else {
     $('.showErrors').text(`There was an error`);
   }
+}
 
+function displayDrink(response) {
+  if (response) {
+    console.log(response);
+    $('#drink-1').text(`Favorite drink: ${response.drinks[0].strDrink}`);
+  } else {
+    $('.showErrors').text(`There was an error`);
   }
+}

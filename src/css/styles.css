@@ -1,3 +1,33 @@
 body {
-  background-color: lightblue;
+  background-color: #084C61;
+}
+.userInput {
+  background-color: #ffc857;
+}
+.get-button {
+  background-color: #177E89;
+  font-weight:bold;
+  text-align:center;
+}
+
+.get-button:hover {
+  background-color:#DB3A34;
+  cursor:pointer;
+}
+.card {
+  border:solid #323031 1rem;
+}
+.card-body {
+  background-color:#FFC857;
+}
+
+img { 
+  align-items: center;
+  max-width: 256px;
+  max-height:300px;
+}
+
+.card-img, .card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

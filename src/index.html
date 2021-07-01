@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cat Generator</title>
 </head>
+
 <body>
+  <div class="navbar-nav">
+    <div class="col userInput">
+      <form class="form-inline">
+        <div class="form-group m-2">
+          <label for="numCats" class="mr-2"><strong>Number of Cats:</strong></label>
+          <input class="form-control" type="number" name="numCats" id="numCats">
+        </div>
+        <button type="submit" class="btn get-button m-2">Generate New Cats!</button>
+      </form>
+    </div>
+  </div>
   <div class="container">
-    <div class="row">
+    <div class="row cat-container mt-3">
       <div class="card" style="width: 18rem;">
         <span id="image1"></span>
         <div class="card-body">
@@ -16,12 +29,14 @@
           <p class="card-text" id="cat-fact"></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" id ="stat-1"></li>
-          <li class="list-group-item" id ="stat-2"></li>
+          <li class="list-group-item" id="drink-1"></li>
+          <li class="list-group-item" id="stat-1"></li>
+          <li class="list-group-item" id="stat-2"></li>
         </ul>
       </div>
     </div>
   </div>
 
 </body>
+
 </html>

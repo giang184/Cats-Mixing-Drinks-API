@@ -48,4 +48,16 @@ export class CatService {
       return error.message;
     }
   }
+  
+  static async getDrink() {
+    try {
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    } catch(error) {
+      return error.message;
+    }
+  }
 }
