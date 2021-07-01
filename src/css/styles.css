@@ -54,7 +54,6 @@ body {
   transform-style: preserve-3d;
   transition-delay:.2s;
 }
-
 .cat-box:hover .cat-liner {
   transform: rotateY(180deg);
   transition-delay:.2s;
