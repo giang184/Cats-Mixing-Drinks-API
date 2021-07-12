@@ -1,4 +1,4 @@
-# epicodus-team01-minesweeper
+# Choose Our Own API
 
 ## By Andrew Giang, Michael Reiersgaard, Dave Lindqvist
 
